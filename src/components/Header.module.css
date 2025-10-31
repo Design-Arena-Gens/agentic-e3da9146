@@ -1,0 +1,124 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  background: rgba(250, 250, 252, 0.78);
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+    background: rgba(9, 13, 22, 0.78);
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.25rem 0;
+}
+
+.brand {
+  display: flex;
+  gap: 0.25rem;
+  font-variation-settings: "wght" 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  align-items: center;
+}
+
+.brand span:last-child {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background: var(--color-primary);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navLink {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  position: relative;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-fast);
+}
+
+.navLink:hover::after,
+.navLink:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.link {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.4rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 12px 22px -12px rgba(17, 24, 39, 0.45);
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -14px rgba(17, 24, 39, 0.55);
+}
+
+@media (max-width: 960px) {
+  .nav {
+    display: none;
+  }
+
+  .inner {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .actions {
+    gap: 0.75rem;
+  }
+
+  .button {
+    padding: 0.55rem 1.15rem;
+  }
+}

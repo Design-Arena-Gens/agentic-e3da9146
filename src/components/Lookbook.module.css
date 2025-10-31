@@ -1,0 +1,59 @@
+.section {
+  padding: 5rem 0;
+}
+
+.header {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.figure {
+  position: relative;
+  padding-top: 140%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 30px 50px -40px rgba(15, 23, 42, 0.55);
+  background: #0f172a;
+}
+
+.figure img {
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.figure:hover img {
+  transform: scale(1.05);
+}
+
+.figure figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.9));
+  color: #f8fafc;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 1020px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .figure {
+    padding-top: 120%;
+  }
+}
